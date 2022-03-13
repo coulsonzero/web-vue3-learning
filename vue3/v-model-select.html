@@ -1,0 +1,21 @@
+<div id="v-model-select" class="demo">
+    <select v-model="selected">
+      <option disabled value="">Please select one</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                selected: ''
+            }
+        }
+    }).mount('#v-model-select')
+</script>

@@ -1,0 +1,22 @@
+<!-- <div class="active"></div> -->
+
+<div id="app">
+    <!-- 对象语法 -->
+    <div :class="classObject"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                classObject: {
+                    active: true,
+                    'text-danger': false
+                }
+            }
+        }
+    }).mount("#app")
+</script>

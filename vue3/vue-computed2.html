@@ -1,0 +1,20 @@
+<div id="demo">{{ fullName }}</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                firstName: 'Foo',
+                lastName: 'Bar'
+            }
+        },
+        computed: {
+            fullName() {
+                return this.firstName + ' ' + this.lastName
+            }
+        }
+    }).mount('#demo')
+</script>

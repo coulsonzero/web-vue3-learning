@@ -1,0 +1,24 @@
+<ul id="array-with-index">
+    <li v-for="(item, index) in items">
+        <!-- {{ parentMessage }} - {{ index }} - {{ item.message }} -->
+        {{ index }} - {{ parentMessage }} - {{ item.message }}
+    </li>
+</ul>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                parentMessage: 'Parent',
+                items: [{
+                    message: 'Foo'
+                }, {
+                    message: 'Bar'
+                }]
+            }
+        }
+    }).mount('#array-with-index')
+</script>

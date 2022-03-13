@@ -1,0 +1,22 @@
+<!-- 
+    <div class="active text-danger"></div> 
+-->
+
+<div id="app">
+    <!-- 数组条件语法 -->
+    <div :class="[{ active: isActive }, errorClass]"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                isActive: true,
+                errorClass: 'text-danger'
+            }
+        }
+    }).mount("#app")
+</script>

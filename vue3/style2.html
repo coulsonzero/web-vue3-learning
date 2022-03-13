@@ -1,0 +1,18 @@
+<div id="app">
+    <!-- 对象语法: CSS property 名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来) 来命名-->
+    <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                activeColor: 'red',
+                fontSize: 30
+            }
+        }
+    }).mount("#app")
+</script>

@@ -1,0 +1,50 @@
+<div id="components-app" class="demo">
+    <ol>
+        <!-- key可省略, 尽可能添加:key -->
+        <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+        </todo-item>
+    </ol>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const ComponentsApp = {
+        data() {
+            return {
+                groceryList: [{
+                    id: 0,
+                    text: 'Vegetables'
+                }, {
+                    id: 1,
+                    text: 'Cheese'
+                }, {
+                    id: 2,
+                    text: 'Whatever else humans are supposed to eat'
+                }]
+            }
+        }
+    }
+
+    const app = Vue.createApp(ComponentsApp)
+
+    /** 
+     * 自定义组件：
+     * 原本：<li v-for="item in groceryList">{{ item.text }}</li>
+     * 现在：<todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+     */
+    app.component('todo-item', {
+        props: ['todo'],
+        template: `<li>{{ todo.text }}</li>`
+    })
+
+    app.mount('#components-app')
+</script>
+
+
+<!-- 
+    1.Vegetables
+    2.Cheese
+    3.Whatever else humans are supposed to eat
+ -->

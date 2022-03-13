@@ -1,0 +1,62 @@
+<!-- 缓动效果是在动画中表达深度的一个重要方式。
+    动画新手最常犯的一个错误是在起始动画节点使用 ease-in，在结束动画节点使用 ease-out。
+    实际上你需要的是反过来的。 
+-->
+
+<div id="app">
+    <button class="button">
+      {{ message }}
+    </button>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const ButtonApp = {
+        data() {
+            return {
+                message: 'Hover Me!'
+            }
+        }
+    }
+
+    Vue.createApp(ButtonApp).mount('#app')
+</script>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px;
+    }
+    
+    .button {
+        background: #1b8f5a;
+        transition: background 0.25s ease-in;
+        border-radius: 4px;
+        display: inline-block;
+        border: none;
+        padding: 0.75rem 1rem;
+        margin: 0;
+        text-decoration: none;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    
+    button:hover,
+    button:focus {
+        transition: background 0.3s ease-out;
+        background: #3eaf7c;
+    }
+    
+    button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+    }
+</style>

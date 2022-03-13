@@ -1,0 +1,19 @@
+<div id="app">
+    <my-component class="baz boo"></my-component>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const app = Vue.createApp({})
+
+    app.component('my-component', {
+        template: `<p class="foo bar">Hi!</p>`
+    })
+
+    app.mount("#app")
+</script>
+
+<!-- 
+    渲染结果：<p class="foo bar baz boo">Hi!</p>
+-->

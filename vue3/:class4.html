@@ -1,0 +1,22 @@
+<!-- 
+    <div class="active text-danger"></div> 
+-->
+
+<div id="app">
+    <!-- 数组语法 -->
+    <div :class="[activeClass, errorClass]"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+        }
+    }).mount("#app")
+</script>

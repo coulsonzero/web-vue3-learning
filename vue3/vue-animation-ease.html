@@ -1,0 +1,133 @@
+<div class='container'>
+    <div class='unit'>
+        <div class='ball ball1'></div>
+        <div class='ball-shadow'></div>
+    </div>
+    <div class='unit'>
+        <div class='ball ball2'></div>
+        <div class='ball-shadow'></div>
+    </div>
+</div>
+<div class='overlay'></div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const ball1 = document.querySelector('.ball1')
+    const ball2 = document.querySelector('.ball2')
+
+    gsap.from(ball1, {
+        duration: 0.8,
+        y: 220,
+        repeat: -1,
+        yoyo: true,
+        ease: Power4.easeOut
+    });
+    gsap.from(ball2, {
+        duration: 0.8,
+        y: 225,
+        repeat: -1,
+        yoyo: true,
+        ease: Circ.easeOut
+    });
+    gsap.fromTo(ball2, {
+        duration: 0.8,
+        scaleY: 1
+    }, {
+        scaleY: 1.1,
+        repeat: -1,
+        yoyo: true,
+        ease: Circ.easeOut
+    });
+</script>
+
+
+<style>
+    html {
+        background: #222;
+    }
+    
+    .container {
+        width: 500px;
+        margin: 10px auto;
+        border: 1px solid #333;
+        height: 280px;
+        background: #111;
+        overflow: hidden;
+    }
+    
+    .unit {
+        float: left;
+        width: 249px;
+        height: 280px;
+        background-color: #222426;
+        *zoom: 1;
+        filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF222426', endColorstr='#FF111111');
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IiIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIyMjQyNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzExMTExMSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+        background-size: 100%;
+        background-image: -moz-radial-gradient(center, ellipse cover, #222426 0%, #111111 100%);
+        background-image: -webkit-radial-gradient(center, ellipse cover, #222426 0%, #111111 100%);
+        background-image: radial-gradient(ellipse cover at center, #222426 0%, #111111 100%);
+    }
+    
+    .unit:first-child {
+        border-right: 1px solid #333;
+    }
+    
+    .overlay {
+        position: absolute;
+        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/grain.png");
+        top: 10px;
+        width: 500px;
+        height: 280px;
+        left: 50%;
+        margin-left: -250px;
+        z-index: 1000;
+        opacity: 0.11;
+        animation: filmgrain 0.4s steps(3) infinite;
+    }
+    
+    .ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #959595;
+        *zoom: 1;
+        filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF959595', endColorstr='#FF494949');
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IiIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzk1OTU5NSIvPjxzdG9wIG9mZnNldD0iNzklIiBzdG9wLWNvbG9yPSIjNGU0ZTRlIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDk0OTQ5Ii8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+        background-size: 100%;
+        background-image: -moz-radial-gradient(center, ellipse cover, #959595 0%, #4e4e4e 79%, #494949 100%);
+        background-image: -webkit-radial-gradient(center, ellipse cover, #959595 0%, #4e4e4e 79%, #494949 100%);
+        background-image: radial-gradient(ellipse cover at center, #959595 0%, #4e4e4e 79%, #494949 100%);
+        transform: translateZ(0);
+        margin: 30px auto;
+        position: relative;
+        z-index: 300;
+    }
+    
+    .ball-shadow {
+        position: absolute;
+        width: 50px;
+        height: 5px;
+        border-radius: 50%;
+        background: #000;
+        top: 280px;
+        margin-left: 100px;
+        z-index: 2;
+        opacity: 0;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+        animation: boom 1.6s 0.7s ease-in-out infinite;
+    }
+    
+    @keyframes boom {
+        50% {
+            opacity: 0.8;
+        }
+    }
+    
+    @keyframes filmgrain {
+        100% {
+            background-position: 200% 0%;
+        }
+    }
+</style>

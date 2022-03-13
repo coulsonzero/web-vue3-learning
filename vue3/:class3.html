@@ -1,0 +1,30 @@
+<!-- 
+    对象计算属性语法
+    <div class="active"></div> 
+-->
+
+<div id="app">
+    <div :class="classObject"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                isActive: true,
+                error: null
+            }
+        },
+        computed: {
+            classObject() {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        }
+    }).mount("#app")
+</script>

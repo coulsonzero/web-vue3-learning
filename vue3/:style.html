@@ -1,0 +1,20 @@
+<div id="app">
+    <!-- 对象语法: 会让模板更清晰, 常常结合返回对象的计算属性使用-->
+    <div :style="styleObject"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                styleObject: {
+                    color: 'red',
+                    fontSize: '13px'
+                }
+            }
+        }
+    }).mount("#app")
+</script>

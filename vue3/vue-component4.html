@@ -1,0 +1,24 @@
+<div id="app">
+    <my-component class="baz"></my-component>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const app = Vue.createApp({})
+        // 当组件有多个根元素，你需要。可以使用 $attrs 指定哪些部分将接收这个 class
+    app.component('my-component', {
+        template: `
+            <p :class="$attrs.class">Hi!</p>
+            <span>This is a child component</span>
+        `
+    })
+
+    app.mount("#app")
+</script>
+
+<!-- 
+    渲染结果：
+    <p class="baz">Hi!</p>
+    <span>This is a child component</span>
+-->

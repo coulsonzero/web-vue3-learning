@@ -1,0 +1,20 @@
+<!-- <div class="static active"></div> -->
+
+<div id="app">
+    <!-- 对象条件语法 -->
+    <div class="static" :class="{ active: isActive, 'text-danger': hasError }"></div>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const vm = Vue.createApp({
+        data() {
+            return {
+                isActive: true,
+                hasError: false
+            }
+        }
+    }).mount("#app")
+</script>

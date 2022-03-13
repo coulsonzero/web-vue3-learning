@@ -1,0 +1,42 @@
+<div id="demo">
+    <div @mousemove="xCoordinate" :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }" class="movearea">
+        <h3>Move your mouse across the screen...</h3>
+        <p>x: {{x}}</p>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const Demo = {
+        data() {
+            return {
+                x: 0
+            }
+        },
+        methods: {
+            xCoordinate(e) {
+                this.x = e.clientX;
+            }
+        }
+    }
+
+    Vue.createApp(Demo).mount('#demo')
+</script>
+
+<style>
+    #demo {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .movearea {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 6vmin;
+        transition: 0.2s background-color ease;
+    }
+</style>
