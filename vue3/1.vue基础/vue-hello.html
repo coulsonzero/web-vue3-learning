@@ -1,21 +1,15 @@
-<div id="hello-vue" class="demo">
-    {{ message }}
-</div>
+<div id="app">{{ message }}</div>
 
-<!-- Step 1: import vue3 package -->
 <script src="https://unpkg.com/vue@next"></script>
-
 <script>
-    // Step 2: 绑定数据
-    const HelloVueApp = {
-            data() {
-                return {
-                    message: 'Hello Vue!!'
-                }
+	const app = {
+		data() {
+			return {
+				message: "Hello Vue!"
             }
         }
-        // Step 3: 挂载
-    Vue.createApp(HelloVueApp).mount('#hello-vue')
+    }
+    Vue.createApp(app).mount('#app')
 </script>
 
 
